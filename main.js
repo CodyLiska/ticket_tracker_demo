@@ -16,6 +16,7 @@ function fetchIssues() {
     let status = issues[i].status
     let statusColor = status == 'Closed' ? 'badge badge-success' : 'badge badge-info'
 
+    // TODO: refactor below to use a template language ejs or handlebars
     issuesList.innerHTML += 
     '<div class="card card-body bg-light mt-3">' + 
     '<h6>Issue ID:' + id + '</h6>' +
@@ -73,7 +74,8 @@ function setStatusClosed(id) {
     }
   }
 
-  localStorage.setItem('issues', JSON.stringify(issues))  // TODO: make a new function that will setItem and fetchIssues() and replace these 2 lines
+  // TODO: make a new function that will setItem and fetchIssues() and replace these 2 lines
+  localStorage.setItem('issues', JSON.stringify(issues))  
 
   fetchIssues()
 }
@@ -86,6 +88,7 @@ function deleteIssue(id) {
     }
   }
   
+  // TODO: make a new function that will setItem and fetchIssues() and replace these 2 lines
   localStorage.setItem('issues', JSON.stringify(issues))
 
   fetchIssues()
